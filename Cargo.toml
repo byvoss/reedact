@@ -1,0 +1,44 @@
+[package]
+name = "reedact"
+version = "0.1.0"
+edition = "2021"
+authors = ["Vivian Burkhard Voss <vivian@byvoss.com>"]
+license = "Apache-2.0"
+description = "Reactive Templates in Action - A post-MVC web framework"
+repository = "https://github.com/byvoss/reedact"
+keywords = ["web", "framework", "template", "reactive", "polyglot"]
+categories = ["web-programming", "template-engine"]
+
+[dependencies]
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["fs", "cors", "compression"] }
+tera = "1.19"
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+anyhow = "1.0"
+thiserror = "1.0"
+config = "0.14"
+once_cell = "1.19"
+dashmap = "5.5"
+
+[dev-dependencies]
+criterion = "0.5"
+insta = "1.34"
+
+[[bench]]
+name = "template_benchmark"
+harness = false
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[profile.dev]
+opt-level = 0
+debug = true

@@ -1,0 +1,37 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+Cargo.lock
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+.vscode/
+*.iml
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Project specific
+CLAUDE.md
+/tmp/
+/dist/
+*.log
+.env
+.env.local
+
+# Generated files
+/static/generated/
+
+# Development
+/dev-data/
+/test-results/
+
+# Coverage
+*.profraw
+*.profdata
+/coverage/
