@@ -16,8 +16,9 @@ Cargo.lock
 .DS_Store
 Thumbs.db
 
-# Project specific
+# Project specific (internal docs)
 CLAUDE.md
+docs/RESPONSIBILITIES.md
 /tmp/
 /dist/
 *.log
@@ -25,7 +26,8 @@ CLAUDE.md
 .env.local
 
 # Generated files
-/static/generated/
+/public/generated/
+/public/dist/
 
 # Development
 /dev-data/

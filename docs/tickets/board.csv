@@ -1,0 +1,29 @@
+ticket_id,current_phase,status,depends_on,title,assigned_to,created,updated,phase_completed
+# Ticket Board - Projekt Status Tracking
+# 
+# Format: [RXX-YYYY]
+# RXX = Kategorie:
+#   R01 = Verwaltungsaufgaben
+#   R02 = Infrastructure/DevOps  
+#   R03 = ReedACT (Core Framework)
+#   R04 = ReedCMS
+#   R05 = Extensions (IDE-Plugins)
+#   R06 = Security/Compliance
+#   R07 = Performance/Optimization
+#   R08 = Research/Prototypes
+#
+# YYYY = Sequentielle ID (0001-9999)
+#
+# Current_Phase: P | C | D | T | done
+#   P = Planning/Design (wird committed nach Fertigstellung)
+#   C = Code Development (wird committed nach Fertigstellung)
+#   D = Dokumentation (wird committed nach Fertigstellung)
+#   T = Testing (wird committed nach Fertigstellung)
+#   done = Alle Phasen abgeschlossen
+#
+# Status: backlog | active | blocked | review | done
+# Depends_on: Komma-getrennte Liste von Vorbedingungen (andere Ticket-IDs)
+# Phase_completed: Welche Phasen bereits abgeschlossen sind (z.B. "P,C" = Planning und Code fertig)
+#
+# Start of actual ticket tracking:
+R01-0000,done,done,,"Project Initialization & Process Setup",,2025-08-27,2025-08-27,"P,C,D,T"

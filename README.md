@@ -10,8 +10,12 @@ A revolutionary web framework where templates rule. Write PHP, Python, JavaScrip
 - 🌐 **Polyglot Execution**: PHP, Python, JavaScript in secure server-side maps
 - ⚡ **Connection-Adaptive**: Microsecond detection, optimised delivery
 - 🎨 **Dynamic CSS**: 18x smaller stylesheets through client-specific compilation
-- 🔒 **Secure by Default**: Language jails with resource limits
+- 🔒 **Secure by Default**: Templates never exposed, code runs in isolated jails
 - 🚀 **Progressive Enhancement**: Works without JavaScript, enhanced with WASM
+
+## Security
+
+Like Twig, Blade, and other server-side template engines, **reedACT templates are never sent to the client**. All `.tera` files are rendered server-side, and only the resulting HTML/JSON is sent to browsers. Code in `.php.tera`, `.py.tera` files executes in secure, isolated environments on the server.
 
 ## Quick Start
 
@@ -40,7 +44,8 @@ cargo run -- serve --dev
 ## Documentation
 
 - [Project Documentation](docs/reference/reedact-project.md) - Comprehensive technical documentation
-- [Development Process](PROCESS.md) - Development workflow and guidelines
+- [Development Process](docs/PROCESS_GUIDE.md) - Development workflow and guidelines
+- [Style Guide](docs/STYLE_GUIDE.md) - Code style and patterns
 
 ## License
 

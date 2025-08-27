@@ -600,7 +600,7 @@ reedACT generates dynamic, component-scoped CSS based on client detection, deliv
 
 ### Generated CSS File Structure
 ```
-static/generated/
+public/generated/
 ├── dashboard/
 │   ├── reedact-phone.css           # 8KB - only dashboard components for phone
 │   ├── reedact-phone.slow.css      # 6KB - dashboard minimal for slow connections
@@ -1043,6 +1043,41 @@ impl UserDashboard {
 }
 ```
 
+## Security Architecture & File Serving
+
+### Template Security Model
+
+**IMPORTANT**: reedACT follows the same security model as Twig, Blade, and other server-side template engines:
+
+- **Templates (`*.tera`) are NEVER sent to the client** - they're server-side only
+- **Components (`*.php.tera`, `*.py.tera`, etc.) are NEVER exposed** - they execute on the server
+- **Only rendered HTML/JSON and public assets are sent to browsers**
+
+This is exactly like PHP applications:
+- `.php` files → executed on server → HTML sent to client
+- `.tera` files → rendered on server → HTML sent to client
+
+### Directory Security Boundaries
+
+```
+my-reedact-project/
+├── templates/           ← SERVER ONLY (like views/ in Laravel)
+│   └── *.tera          ← Never served directly, always rendered
+├── components/         ← SERVER ONLY (like app/ in Laravel)  
+│   └── *.{php,py,js}.tera ← Executed in secure jails, never exposed
+└── public/             ← CLIENT ACCESSIBLE (the usual suspects)
+    ├── css/           ← Static stylesheets
+    ├── js/            ← Client-side JavaScript
+    ├── images/        ← Images, icons, etc.
+    └── favicon.ico    ← Standard web assets
+```
+
+**Security Rules:**
+1. **NEVER serve** anything outside `/public/` directly
+2. **ALL templates** go through the rendering engine
+3. **ALL code execution** happens in secure language jails
+4. **NO raw template files** are ever accessible via HTTP
+
 ## Project Structure
 
 ### reedACT Server Structure (Installation)
@@ -1100,7 +1135,9 @@ my-reedact-project/
 │           ├── product-card.tera
 │           ├── product-card.php.tera
 │           └── product-card.scss
-└── static/                        # Static assets
+└── public/                        # Public web assets (the usual suspects)
+    ├── css/                      # Compiled stylesheets
+    ├── js/                       # Client-side JavaScript
     ├── images/
     │   ├── hero-4k.avif
     │   ├── hero-mobile.webp

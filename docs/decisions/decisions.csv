@@ -1,0 +1,6 @@
+uid,timestamp,theme,decision,reference_uid,rationale
+DEC001,2024-01-26T10:00:00Z,Web Framework,Use Axum instead of Actix-web,,Tower ecosystem integration and better async support
+DEC002,2024-01-26T10:05:00Z,Template Engine,Use Tera as base template engine,,Familiar Django/Jinja2 syntax and extensibility
+DEC003,2024-01-26T10:10:00Z,Security Model,Jail-based isolation for language execution,,FreeBSD-jail inspired security without container overhead
+DEC004,2024-01-26T10:15:00Z,Directory Structure,Public folder for client assets instead of static,,Familiar naming from PHP frameworks
+DEC005,2024-01-26T10:20:00Z,Template Security,Templates never sent to client only rendered,,Same model as Twig/Blade for securityDEC007,2025-08-27T12:30:38Z,Process,Ticket-System mit Phasen-Workflow eingeführt,,Bessere Nachvollziehbarkeit
